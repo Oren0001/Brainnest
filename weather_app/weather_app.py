@@ -9,6 +9,7 @@ import tkinter as tki
 from PIL import ImageTk, Image
 from datetime import datetime
 
+APP_ID = "Enter App ID here"
 
 class WeatherApp:
     def __init__(self, weather_data):
@@ -59,8 +60,7 @@ class WeatherApp:
 
 def get_weather_service(city, country):
     url = "http://api.openweathermap.org/data/2.5/weather"
-    parameters = {'q': city + ',' + country, "appid": "482ba6eb027c01498e6f6e28129d924d",
-                  "units": "metric"}
+    parameters = {'q': city + ',' + country, "appid": APP_ID, "units": "metric"}
     r = requests.get(url, params=parameters)
     data = r.json()
     if r.status_code != 200:
